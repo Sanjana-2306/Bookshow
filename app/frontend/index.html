@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>BookFlow AI</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        ⚡ BookFlow AI
+    </div>
+
+    <div class="system-status">
+
+        <span class="status-dot"></span>
+
+        System Online
+
+    </div>
+
+</nav>
+
+
+
+<main>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <p class="eyebrow">
+                AI-POWERED BOOKING ASSISTANT
+            </p>
+
+            <h1>
+                Book at the <span>Right Time.</span>
+            </h1>
+
+            <p class="hero-text">
+                BookFlow AI analyzes booking traffic and predicts
+                the best time to make your booking with less waiting.
+            </p>
+
+            <button
+                type="button"
+                id="checkTrafficBtn"
+                class="primary-btn"
+            >
+                🤖 Find Best Booking Time
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= BOOKING ASSISTANT ================= -->
+
+    <section
+        class="booking-section"
+        id="bookingAssistant"
+    >
+
+        <div class="section-heading">
+
+            <p class="eyebrow">
+                AI BOOKING ASSISTANT
+            </p>
+
+            <h2>
+                What do you want to book?
+            </h2>
+
+            <p>
+                Select a service and let AI find the smoothest booking time.
+            </p>
+
+        </div>
+
+
+
+        <!-- ================= STEP 1 ================= -->
+
+        <div class="booking-step">
+
+            <div class="step-number">
+                1
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Choose Booking Type
+                </h3>
+
+
+                <div class="service-grid">
+
+
+                    <!-- MOVIE -->
+
+                    <button
+                        type="button"
+                        class="service-card"
+                        data-service="Movie Ticket"
+                    >
+
+                        <div class="service-icon">
+                            🎬
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Movie Ticket
+                            </h4>
+
+                            <p>
+                                Book movie tickets
+                            </p>
+
+                        </div>
+
+                    </button>
+
+
+
+                    <!-- HOTEL -->
+
+                    <button
+                        type="button"
+                        class="service-card"
+                        data-service="Hotel"
+                    >
+
+                        <div class="service-icon">
+                            🏨
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Hotel
+                            </h4>
+
+                            <p>
+                                Book hotel rooms
+                            </p>
+
+                        </div>
+
+                    </button>
+
+
+
+                    <!-- TRAIN -->
+
+                    <button
+                        type="button"
+                        class="service-card"
+                        data-service="Train"
+                    >
+
+                        <div class="service-icon">
+                            🚆
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Train
+                            </h4>
+
+                            <p>
+                                Book train tickets
+                            </p>
+
+                        </div>
+
+                    </button>
+
+
+
+                    <!-- BUS -->
+
+                    <button
+                        type="button"
+                        class="service-card"
+                        data-service="Bus"
+                    >
+
+                        <div class="service-icon">
+                            🚌
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Bus
+                            </h4>
+
+                            <p>
+                                Book bus tickets
+                            </p>
+
+                        </div>
+
+                    </button>
+
+
+                </div>
+
+
+
+                <p
+                    id="selectedService"
+                    class="selection-message"
+                >
+                    Please select a booking type.
+                </p>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= STEP 2 ================= -->
+
+        <div class="booking-step">
+
+            <div class="step-number">
+                2
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Select Quantity
+                </h3>
+
+
+                <div class="quantity-control">
+
+
+                    <!-- DECREASE -->
+
+                    <button
+                        type="button"
+                        id="decreaseQuantity"
+                        class="quantity-btn"
+                        aria-label="Decrease quantity"
+                    >
+                        −
+                    </button>
+
+
+                    <!-- QUANTITY -->
+
+                    <span id="quantity">
+                        0
+                    </span>
+
+
+                    <!-- INCREASE -->
+
+                    <button
+                        type="button"
+                        id="increaseQuantity"
+                        class="quantity-btn"
+                        aria-label="Increase quantity"
+                    >
+                        +
+                    </button>
+
+
+                    <!-- NEW CONFIRM BUTTON -->
+
+                    <button
+                        type="button"
+                        id="confirmQuantity"
+                        class="quantity-confirm-btn"
+                        title="Confirm quantity"
+                        aria-label="Confirm quantity"
+                    >
+                        ✓
+                    </button>
+
+
+                </div>
+
+
+                <p class="quantity-label">
+                    Number of tickets / rooms / seats
+                </p>
+
+
+                <p class="quantity-confirm-label">
+                    Enter your quantity and click ✓ to continue
+                </p>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= STEP 3 ================= -->
+
+        <div class="booking-step">
+
+            <div class="step-number">
+                3
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Select Booking Date
+                </h3>
+
+
+                <div class="date-box">
+
+                    <span>
+                        📅
+                    </span>
+
+                    <input
+                        type="date"
+                        id="bookingDate"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= PREDICT BUTTON ================= -->
+
+        <div
+            class="predict-container"
+            id="predictSection"
+        >
+
+            <button
+                type="button"
+                id="predictBtn"
+                class="predict-btn"
+            >
+                🤖 Predict Best Time
+            </button>
+
+        </div>
+
+
+
+        <!-- ================= AI RESULT ================= -->
+
+        <div
+            id="aiResult"
+            class="ai-result"
+            style="display: none;"
+        >
+
+
+            <!-- RESULT HEADER -->
+
+            <div class="result-header">
+
+                <div>
+
+                    <p class="eyebrow">
+                        AI RECOMMENDATION
+                    </p>
+
+                    <h2>
+                        Your Best Booking Time
+                    </h2>
+
+                </div>
+
+
+                <div class="ai-badge">
+                    AI
+                </div>
+
+            </div>
+
+
+
+            <!-- RECOMMENDATION -->
+
+            <div class="recommendation-card">
+
+
+                <div class="recommendation-main">
+
+                    <div class="result-icon">
+                        ⭐
+                    </div>
+
+                    <div>
+
+                        <p class="result-label">
+                            BEST TIME
+                        </p>
+
+                        <h2 id="bestSlot">
+                            --
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="traffic-result">
+
+                    <p class="result-label">
+                        TRAFFIC LEVEL
+                    </p>
+
+                    <div
+                        id="bestTraffic"
+                        class="traffic-badge"
+                    >
+                        --
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ================= BOOKING SUMMARY ================= -->
+
+            <div class="booking-summary">
+
+
+                <div>
+
+                    <span>
+                        Service
+                    </span>
+
+                    <strong id="resultService">
+                        --
+                    </strong>
+
+                </div>
+
+
+
+                <div>
+
+                    <span>
+                        Quantity
+                    </span>
+
+                    <strong id="resultQuantity">
+                        --
+                    </strong>
+
+                </div>
+
+
+
+                <div>
+
+                    <span>
+                        Date
+                    </span>
+
+                    <strong id="predictionDate">
+                        --
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ================= BOOK NOW ================= -->
+
+            <button
+                type="button"
+                id="bookNowBtn"
+                class="book-now-btn"
+            >
+                🎫 BOOK NOW
+            </button>
+
+
+
+            <!-- ================= BOOKING MESSAGE ================= -->
+
+            <div
+                id="bookingMessage"
+                class="booking-message"
+                aria-live="polite"
+            ></div>
+
+
+        </div>
+
+
+
+        <!-- ================= TRAFFIC FORECAST ================= -->
+
+        <div class="slots-section">
+
+
+            <div class="slots-header">
+
+                <div>
+
+                    <p class="eyebrow">
+                        TRAFFIC FORECAST
+                    </p>
+
+                    <h2>
+                        Booking Traffic by Time
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="slotGrid"
+                class="slot-grid"
+            ></div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <section class="dashboard-section">
+
+
+        <div class="section-heading">
+
+            <p class="eyebrow">
+                LIVE MONITORING
+            </p>
+
+            <h2>
+                Booking Traffic Dashboard
+            </h2>
+
+        </div>
+
+
+
+        <div class="dashboard-grid">
+
+
+            <!-- TRAFFIC SCORE -->
+
+            <div class="dashboard-card">
+
+                <span class="dashboard-icon">
+                    📊
+                </span>
+
+                <p>
+                    Traffic Score
+                </p>
+
+                <h3 id="trafficValue">
+                    --
+                </h3>
+
+            </div>
+
+
+
+            <!-- TRAFFIC STATUS -->
+
+            <div class="dashboard-card">
+
+                <span class="dashboard-icon">
+                    🚦
+                </span>
+
+                <p>
+                    Traffic Status
+                </p>
+
+                <h3 id="trafficStatus">
+                    --
+                </h3>
+
+            </div>
+
+
+
+            <!-- RECOMMENDATION -->
+
+            <div class="dashboard-card">
+
+                <span class="dashboard-icon">
+                    💡
+                </span>
+
+                <p>
+                    Recommendation
+                </p>
+
+                <h3 id="recommendation">
+                    --
+                </h3>
+
+            </div>
+
+
+        </div>
+
+
+
+        <p class="last-updated">
+
+            Last updated:
+
+            <span id="lastUpdated">
+                --
+            </span>
+
+        </p>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+        ⚡ BookFlow AI — Intelligent Booking Traffic Prediction
+    </p>
+
+</footer>
+
+
+
+<script src="app.js"></script>
+
+
+</body>
+
+</html>

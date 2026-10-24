@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>BookFlow AI</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>BookFlow AI</h1>
+
+    <p class="subtitle">
+        AI-powered booking traffic prediction
+    </p>
+
+    <h2>What do you want to book?</h2>
+
+    <div class="booking-types">
+
+        <div
+            class="service-card"
+            onclick="selectService('Movie Ticket')"
+        >
+            <div class="service-icon">
+                🎬
+            </div>
+
+            <h3>Movie Ticket</h3>
+
+            <p>
+                Find the best time to book movie tickets.
+            </p>
+        </div>
+
+
+        <div
+            class="service-card"
+            onclick="selectService('Hotel')"
+        >
+            <div class="service-icon">
+                🏨
+            </div>
+
+            <h3>Hotel</h3>
+
+            <p>
+                Find the best time to book hotels.
+            </p>
+        </div>
+
+
+        <div
+            class="service-card"
+            onclick="selectService('Train')"
+        >
+            <div class="service-icon">
+                🚆
+            </div>
+
+            <h3>Train</h3>
+
+            <p>
+                Find a smoother booking time.
+            </p>
+        </div>
+
+
+        <div
+            class="service-card"
+            onclick="selectService('Bus')"
+        >
+            <div class="service-icon">
+                🚌
+            </div>
+
+            <h3>Bus</h3>
+
+            <p>
+                Avoid heavy booking traffic.
+            </p>
+        </div>
+
+    </div>
+
+
+    <button
+        id="findBestTimeBtn"
+        class="ai-button"
+    >
+        🤖 Find Best Booking Time
+    </button>
+
+
+    <section
+        id="aiSection"
+        class="ai-section"
+    >
+
+        <h2>
+            🤖 BookFlow AI Booking Assistant
+        </h2>
+
+        <p class="ai-description">
+            Select what you want to book and choose your date.
+            BookFlow AI will predict the smoothest booking time.
+        </p>
+
+
+        <div class="booking-card">
+
+            <label for="service">
+                What are you booking?
+            </label>
+
+            <select id="service">
+                <option value="">
+                    Select a service
+                </option>
+            </select>
+
+
+            <label for="bookingDate">
+                Booking Date
+            </label>
+
+            <input
+                type="date"
+                id="bookingDate"
+            >
+
+
+            <label for="slot">
+                Booking Time
+            </label>
+
+            <select id="slot">
+                <option value="">
+                    Loading...
+                </option>
+            </select>
+
+
+            <label for="quantity">
+                Quantity
+            </label>
+
+            <input
+                type="number"
+                id="quantity"
+                value="1"
+                min="1"
+                max="10"
+            >
+
+
+            <div class="ai-result">
+
+                <h3>
+                    ⭐ Best Booking Time
+                </h3>
+
+                <div
+                    id="bestSlot"
+                    class="best-slot"
+                >
+                    Select a date
+                </div>
+
+                <p id="bestTraffic">
+                    BookFlow AI will analyze booking traffic.
+                </p>
+
+                <p id="recommendation">
+                    🤖 Select a date to start AI prediction.
+                </p>
+
+                <div
+                    id="slotGrid"
+                    class="slot-grid"
+                >
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                onclick="bookNow()"
+                class="book-button"
+            >
+                🎟️ BOOK NOW
+            </button>
+
+
+            <div id="result"></div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
